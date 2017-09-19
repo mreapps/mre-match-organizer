@@ -12,7 +12,7 @@ public class RoleConverter implements AttributeConverter<Role, Integer>
     @Override
     public Integer convertToDatabaseColumn(Role role)
     {
-        return role == null ? null : role.getId();
+        return EnumWithIdConverter.getId(role);
     }
 
     @Override

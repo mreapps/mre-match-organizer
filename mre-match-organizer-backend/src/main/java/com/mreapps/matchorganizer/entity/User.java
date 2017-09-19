@@ -5,11 +5,10 @@ import com.mreapps.matchorganizer.enums.Role;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Column;
-import javax.persistence.Convert;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -32,4 +31,12 @@ public class User extends AbstractBaseEntity
     @Column(name = "role", nullable = false)
     @Convert(converter = RoleConverter.class)
     private Role role;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_club",
+            joinColumns = @JoinColumn(name = "user_uid", referencedColumnName = "uid"),
+            inverseJoinColumns = @JoinColumn(name = "club_uid", referencedColumnName = "uid")
+    )
+    private Set<Club> clubs = new HashSet<>();
 }
