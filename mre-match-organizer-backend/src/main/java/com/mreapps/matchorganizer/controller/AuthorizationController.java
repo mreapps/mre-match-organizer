@@ -32,22 +32,22 @@ public class AuthorizationController
     @PostMapping("login")
     public String login(@RequestBody LoginForm loginForm)
     {
-        User user = userRepository.findByPhoneNumber(loginForm.getPhoneNumber());
+        User user = userRepository.findByEmailAddress(loginForm.getEmailAddress());
         if (user == null)
         {
-            throw new BadCredentialsException("Invalid phone number or password");
+            throw new BadCredentialsException("Invalid email address or password");
         }
 
         if (!passwordEncoder.matches(loginForm.getPassword(), user.getEncryptedPassword()))
         {
-            throw new BadCredentialsException("Invalid phone number or password");
+            throw new BadCredentialsException("Invalid email address or password");
         }
 
         com.mreapps.matchorganizer.security.model.User u = new com.mreapps.matchorganizer.security.model.User();
         u.setId(user.getId());
-        u.setPhoneNumber(user.getPhoneNumber());
+        u.setEmailAddress(user.getEmailAddress());
         u.setRole(user.getRole());
-        u.setVerified(user.getPhoneNumberConfirmedAt() != null);
+        u.setVerified(user.getEmailAddressConfirmedAt() != null);
         return jwtUtil.generateToken(u);
     }
 

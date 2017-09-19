@@ -20,14 +20,14 @@ import java.util.Date;
 @Table(name = "\"user\"")
 public class User extends AbstractBaseEntity
 {
-    @Column(name = "phone_number", length = 20, nullable = false, unique = true)
-    private String phoneNumber;
+    @Column(name = "email_address", nullable = false, unique = true)
+    private String emailAddress;
 
     @Column(name = "encrypted_password", nullable = false)
     private String encryptedPassword;
 
-    @Column(name = "phone_number_confirmed_at")
-    private Date phoneNumberConfirmedAt;
+    @Column(name = "email_address_confirmed_at")
+    private Date emailAddressConfirmedAt;
 
     @Column(name = "role", nullable = false)
     @Convert(converter = RoleConverter.class)

@@ -35,7 +35,7 @@ public class JwtUtil
                     .getBody();
 
             User u = new User();
-            u.setPhoneNumber(body.getSubject());
+            u.setEmailAddress(body.getSubject());
             u.setId((long) body.get("userId"));
             u.setRole((Role) body.get("role"));
             u.setVerified((boolean) body.get("verified"));
@@ -57,7 +57,7 @@ public class JwtUtil
      */
     public String generateToken(User u)
     {
-        Claims claims = Jwts.claims().setSubject(u.getPhoneNumber());
+        Claims claims = Jwts.claims().setSubject(u.getEmailAddress());
         claims.put("userId", u.getId());
         claims.put("role", u.getRole());
         claims.put("verified", u.isVerified());
