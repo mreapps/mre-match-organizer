@@ -1,0 +1,10 @@
+spring.datasource:
+  url: jdbc:postgresql://localhost:5432/matchorganizer
+  driverClassName: org.postgresql.Driver
+  username: matchorganizer
+  password: matchorganizer
+spring.jpa:
+  database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+jwt.secret: test
+password.secret: test
