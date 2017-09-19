@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-public class AuthorizationController
+public class UserController
 {
     private final JwtUtil jwtUtil;
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
 
     @Autowired
-    public AuthorizationController(JwtUtil jwtUtil, PasswordEncoder passwordEncoder, UserRepository userRepository)
+    public UserController(JwtUtil jwtUtil, PasswordEncoder passwordEncoder, UserRepository userRepository)
     {
         this.jwtUtil = jwtUtil;
         this.passwordEncoder = passwordEncoder;
@@ -51,23 +51,12 @@ public class AuthorizationController
         return jwtUtil.generateToken(u);
     }
 
-    @PostMapping("signup")
-    public String signup()
-    {
-        /*
-        TODO Input values:
-        email address / username
-        email address / username retyped
-        password
-        password retyped
-        role should be ROLE_USER as default
-        first name
-        middle name
-        last name
-        gender
-        date of birth
-         */
-        return "signup";
-    }
-
+    // TODO sign up (email address, password, first name, middle name, last name, gender, date of birth, set default role USER)
+    // TODO forgot password
+    // TODO confirm email address
+    // TODO log out
+    // TODO edit user details (first name, middle name, last name, gender, date of birth)
+    // TODO change password
+    // TODO change email address
+    // TODO get user details
 }
