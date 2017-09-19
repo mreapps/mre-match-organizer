@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS "user";
 CREATE TABLE "user"
 (
   uid                       SERIAL       NOT NULL,
-  phone_number              VARCHAR(20)  NOT NULL UNIQUE,
+  email_address              VARCHAR(20)  NOT NULL UNIQUE,
   encrypted_password        VARCHAR(255) NOT NULL,
   phone_number_confirmed_at TIMESTAMP,
   role                      INTEGER      NOT NULL,

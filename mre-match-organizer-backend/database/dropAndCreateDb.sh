@@ -1,4 +1,4 @@
 #!/bin/bash
 
-psql -U fuzzms < fuzzms.ddl
-psql -U fuzzms < initialData.sql
+psql -U matchorganizer < matchorganizer.ddl
+psql -U matchorganizer < initialData.sql

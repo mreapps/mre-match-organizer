@@ -4,9 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FuzzmsApplication {
+public class MatchOrganizerApplication
+{
 
 	public static void main(String[] args) {
-		SpringApplication.run(FuzzmsApplication.class, args);
+		SpringApplication.run(MatchOrganizerApplication.class, args);
 	}
 }
